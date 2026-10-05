@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 215">
+  <rect x="0" y="0" width="400" height="215" rx="16" fill="#FAF8F3"/>
+
+  <!-- mainland (Beaufort / Bluffton) -->
+  <path d="M 22,58
+           C 18,30 58,12 108,14
+           C 165,16 214,8 240,30
+           C 262,49 250,70 256,88
+           C 262,106 248,120 222,118
+           C 198,116 188,136 158,149
+           C 120,160 58,154 34,128
+           C 14,108 24,83 22,58 Z"
+        fill="#F1EDE4" stroke="#5C7A66" stroke-width="2.5"/>
+
+  <!-- Hilton Head Island -->
+  <path d="M 258,148
+           C 252,126 284,109 316,113
+           C 348,116 374,122 386,141
+           C 398,161 386,185 360,198
+           C 334,211 300,207 276,193
+           C 261,183 261,166 258,148 Z"
+        fill="#F1EDE4" stroke="#5C7A66" stroke-width="2.5"/>
+
+  <!-- waterway accent blades (brand mark motif) -->
+  <g stroke="#5C7A66" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5">
+    <path d="M 18,196 Q 22,183 17,171"/>
+    <path d="M 29,199 Q 34,185 31,170"/>
+    <path d="M 40,196 Q 43,183 40,172"/>
+  </g>
+
+  <!-- route line connecting the three towns -->
+  <path d="M 95,68 Q 138,86 172,110 Q 220,132 300,152"
+        fill="none" stroke="#5C7A66" stroke-width="2" stroke-dasharray="1,7" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Beaufort pin -->
+  <circle cx="95" cy="68" r="9" fill="none" stroke="#5C7A66" stroke-width="1.6" opacity="0.55"/>
+  <circle cx="95" cy="68" r="5" fill="#5C7A66"/>
+  <text x="109" y="64" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="15" fill="#23291F">Beaufort</text>
+
+  <!-- Bluffton pin -->
+  <circle cx="172" cy="110" r="9" fill="none" stroke="#5C7A66" stroke-width="1.6" opacity="0.55"/>
+  <circle cx="172" cy="110" r="5" fill="#5C7A66"/>
+  <text x="186" y="106" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="15" fill="#23291F">Bluffton</text>
+
+  <!-- Hilton Head Island pin -->
+  <circle cx="300" cy="152" r="9" fill="none" stroke="#5C7A66" stroke-width="1.6" opacity="0.55"/>
+  <circle cx="300" cy="152" r="5" fill="#5C7A66"/>
+  <text x="391" y="177" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="14" fill="#23291F" text-anchor="end">Hilton Head Island</text>
+</svg>
