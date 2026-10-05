@@ -43,7 +43,12 @@
   .nav-links { display: flex; align-items: center; gap: 36px; }
   .nav-links a:not(.btn) { font-size: 15px; text-decoration: none; }
   .nav-links a:not(.btn):hover { opacity: 0.7; }
-  .nav-cta { display: none; }
+  .nav-toggle { display: none; background: none; border: none; padding: 6px; border-radius: 8px; cursor: pointer; flex: 0 0 auto; }
+  .nav-toggle:hover { background: rgba(0,0,0,0.04); }
+  .mobile-menu { display: none; flex-direction: column; padding: 4px 24px 20px; gap: 2px; border-top: 1px solid var(--line); }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a:not(.btn) { padding: 13px 2px; font-size: 16px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line); }
+  .mobile-menu .btn { margin-top: 14px; width: 100%; }
 
   /* hero */
   .hero { padding: 72px 0; }
@@ -128,8 +133,8 @@
   .footer-copy { font-size: 13px; color: var(--caption); }
 
   @media (max-width: 860px) {
-    .nav-links a:not(.nav-cta) { display: none; }
-    .nav-cta { display: inline-flex; }
+    .nav-links { display: none; }
+    .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
     .hero .wrap { flex-direction: column; align-items: stretch; }
     .hero-copy { width: 100%; }
     .hero-media .placeholder, .hero-media img { height: 260px; }
@@ -161,8 +166,16 @@
       <a href="#services">Services</a>
       <a href="#case-study">Case Studies</a>
       <a href="#service-area">About</a>
-      <a class="btn btn-solid nav-cta" href="mailto:hello@marshnmain.com">Schedule a Consultation</a>
     </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#23291F" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#case-study">Case Studies</a>
+    <a href="#service-area">About</a>
+    <a class="btn btn-solid" href="mailto:hello@marshnmain.com">Schedule a Consultation</a>
   </div>
 </nav>
 
@@ -302,6 +315,24 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  if (!toggle || !menu) return;
+  toggle.addEventListener('click', function(){
+    var isOpen = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
