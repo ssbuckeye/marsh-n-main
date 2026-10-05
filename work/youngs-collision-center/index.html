@@ -24,11 +24,14 @@
   h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; margin: 0; }
 
   /* nav */
-  nav { padding: 22px 0; border-bottom: 1px solid var(--line); }
+  nav { padding: 18px 0; border-bottom: 1px solid var(--line); }
   nav .wrap { display: flex; align-items: center; justify-content: space-between; }
-  .brand { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 17px; color: var(--ink); }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
   .brand svg { flex: 0 0 18px; }
-  .brand .n { font-style: italic; font-weight: 400; color: var(--accent); }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+  .brand-name { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 17px; }
+  .brand-name .n { font-style: italic; font-weight: 400; color: var(--accent); }
+  .brand-tagline { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); margin-top: 2px; }
   nav .cta { font-size: 14px; font-weight: 600; color: var(--accent); text-decoration: none; }
 
   /* hero */
@@ -95,7 +98,10 @@
   <div class="wrap">
     <a class="brand" href="/">
       <svg width="18" height="18" viewBox="0 0 40 40"><path d="M8,36 Q10,20 6,4" stroke="#5C7A66" stroke-width="5" fill="none" stroke-linecap="round"></path><path d="M20,36 Q22,14 20,2" stroke="#5C7A66" stroke-width="5" fill="none" stroke-linecap="round"></path><path d="M32,36 Q30,20 34,4" stroke="#5C7A66" stroke-width="5" fill="none" stroke-linecap="round"></path></svg>
-      Marsh <span class="n">n</span> Main
+      <span class="brand-text">
+        <span class="brand-name">Marsh <span class="n">n</span> Main</span>
+        <span class="brand-tagline">Digital</span>
+      </span>
     </a>
     <a class="cta" href="mailto:hello@marshnmain.com">Get in touch →</a>
   </div>
