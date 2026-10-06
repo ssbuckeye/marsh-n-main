@@ -133,6 +133,26 @@
   .case-study-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 20px; font-size: 15px; font-weight: 600; color: var(--accent); text-decoration: none; }
   .case-study-link:hover { opacity: 0.8; }
 
+  /* stat pulse: the 4.41s / 310ms figures pop larger and bold, then settle back, once on scroll */
+  .case-study-note .stat-pulse {
+    display: inline-block;
+    position: relative;
+    transform-origin: center bottom;
+  }
+  html.js .case-study-note .stat-pulse.pulse {
+    animation: statPulse 0.9s cubic-bezier(.34, 1.56, .64, 1);
+    z-index: 2;
+  }
+  @keyframes statPulse {
+    0%   { transform: scale(1);   font-weight: 400; color: var(--muted); text-shadow: none; }
+    40%  { transform: scale(2);   font-weight: 900; color: var(--accent); text-shadow: 0 2px 10px rgba(92, 122, 102, 0.45); }
+    60%  { transform: scale(2);   font-weight: 900; color: var(--accent); text-shadow: 0 2px 10px rgba(92, 122, 102, 0.45); }
+    100% { transform: scale(1);   font-weight: 400; color: var(--muted); text-shadow: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .case-study-note .stat-pulse.pulse { animation: none; }
+  }
+
   /* service area */
   .area-row { display: flex; align-items: center; gap: 48px; }
   .area-copy { flex: 1; display: flex; flex-direction: column; gap: 12px; }
@@ -294,7 +314,7 @@
     <div class="case-study-media">
       <img src="home-assets/case-study-collage.jpg" alt="Young's Collision Center website before and after redesign">
     </div>
-    <p class="case-study-note">A 40-year family auto body shop's website went from a 4.41-second mobile-unfriendly site to a 310-millisecond, mobile-first experience.</p>
+    <p class="case-study-note">A 40-year family auto body shop's website went from a <span class="stat-pulse" id="statOld">4.41</span>-second mobile-unfriendly site to a <span class="stat-pulse" id="statNew">310</span>-millisecond, mobile-first experience.</p>
     <a class="case-study-link" href="/work/youngs-collision-center/">Read the full case study →</a>
   </div>
 </section>
@@ -381,6 +401,25 @@
     });
   }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
   revealTargets.forEach(function(el){ observer.observe(el); });
+})();
+
+(function(){
+  var section = document.getElementById('case-study');
+  var statOld = document.getElementById('statOld');
+  var statNew = document.getElementById('statNew');
+  if (!section || !statOld || !statNew) return;
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!('IntersectionObserver' in window) || reduceMotion) return;
+  var observer = new IntersectionObserver(function(entries, obs){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        obs.unobserve(entry.target);
+        setTimeout(function(){ statOld.classList.add('pulse'); }, 150);
+        setTimeout(function(){ statNew.classList.add('pulse'); }, 1100);
+      }
+    });
+  }, { threshold: 0.3, rootMargin: '0px 0px -10% 0px' });
+  observer.observe(section);
 })();
 </script>
 
