@@ -78,6 +78,11 @@
   .credentials .cred .num { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 24px; color: var(--accent); }
   .credentials .cred .label { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; }
 
+  .story-row { display: flex; align-items: flex-start; gap: 48px; }
+  .story-copy { flex: 1; min-width: 0; }
+  .story-media { flex: 0 0 300px; }
+  .story-media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 10%; border-radius: 16px; display: block; box-shadow: 0 24px 60px -24px rgba(35, 41, 31, 0.3); }
+
   /* service area */
   .area-row { display: flex; align-items: center; gap: 48px; }
   .area-copy { flex: 1; display: flex; flex-direction: column; gap: 12px; }
@@ -113,6 +118,8 @@
     .area-map { flex: 0 0 auto; width: 100%; }
     .credentials { gap: 20px; }
     footer.site .wrap { flex-direction: column; align-items: flex-start; }
+    .story-row { flex-direction: column; gap: 28px; }
+    .story-media { flex: 0 0 auto; width: 100%; max-width: 280px; }
   }
 </style>
 </head>
@@ -158,10 +165,17 @@
 
 <section class="block" id="story">
   <div class="wrap">
-    <div class="kicker">My Background</div>
-    <h2>From Fortune 500 boardrooms to Main Street storefronts</h2>
-    <p class="desc">Before Marsh n Main, I spent 20+ years as a digital marketing and e-commerce executive at Cox Communications, Verizon Wireless, and Motorola Mobility (as part of Google). I grew existing-customer sales volume on Cox.com by over 300% in four years, took Verizon's SEO ranking from behind AT&amp;T to the industry lead in under six months, owned marketing email programs at all three companies that generated millions in profit, and launched Motorola's global e-commerce platform &mdash; a first-of-its-kind system that delivered custom-built phones in seven days. I hold an MBA from the University of Texas at Austin and a BA in Economics from Vanderbilt University.</p>
-    <p class="desc">In between those roles, I bought and ran a small business of my own &mdash; a furniture business, from 2011 to 2013. That's the piece that actually matters most here: I've sat on both sides of the table. I know what it's like to approve a marketing budget as a Fortune 500 executive, and I know what it's like to watch every dollar as a small business owner. Marsh n Main exists because most small businesses never get access to the first kind of thinking, at a price that makes sense for the second.</p>
+    <div class="story-row">
+      <div class="story-copy">
+        <div class="kicker">My Background</div>
+        <h2>From Fortune 500 boardrooms to Main Street storefronts</h2>
+        <p class="desc">Before Marsh n Main, I spent 20+ years as a digital marketing and e-commerce executive at Cox Communications, Verizon Wireless, and Motorola Mobility (as part of Google). I grew existing-customer sales volume on Cox.com by over 300% in four years, took Verizon's SEO ranking from behind AT&amp;T to the industry lead in under six months, owned marketing email programs at all three companies that generated millions in profit, and launched Motorola's global e-commerce platform &mdash; a first-of-its-kind system that delivered custom-built phones in seven days. I hold an MBA from the University of Texas at Austin and a BA in Economics from Vanderbilt University.</p>
+        <p class="desc">In between those roles, I bought and ran a small business of my own &mdash; a furniture business, from 2011 to 2013. That's the piece that actually matters most here: I've sat on both sides of the table. I know what it's like to approve a marketing budget as a Fortune 500 executive, and I know what it's like to watch every dollar as a small business owner. Marsh n Main exists because most small businesses never get access to the first kind of thinking, at a price that makes sense for the second.</p>
+      </div>
+      <div class="story-media">
+        <img src="/home-assets/about-photo.jpg" alt="Andy Young, founder of Marsh n Main">
+      </div>
+    </div>
     <div class="credentials">
       <div class="cred"><span class="num">20+ yrs</span><span class="label">Digital marketing &amp; e-commerce leadership</span></div>
       <div class="cred"><span class="num">300%</span><span class="label">Sales growth driven at Cox.com</span></div>
