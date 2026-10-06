@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Marsh n Main</title>
+<meta name="description" content="Andy Young spent 20+ years building digital experiences for Cox Communications, Verizon Wireless, and Motorola Mobility. Now he brings that same approach to small businesses across Hilton Head Island, Bluffton, and Beaufort.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&display=swap">
+<style>
+  :root { --accent: #5C7A66; --cream: #FAF8F3; --ink: #23291F; --muted: #6B685F; --line: #E4E0D3; --panel: #F1EDE4; --placeholder: #E6E1D2; --caption: #8A8677; --border2: #D8D3C4; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; margin: 0; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 30px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .btn-solid { background: var(--accent); color: #FFFFFF; }
+  .btn-solid:hover { opacity: 0.9; }
+  .btn-outline { border: 1px solid var(--border2); color: var(--ink); }
+  .btn-outline:hover { background: rgba(0,0,0,0.03); }
+
+  /* nav */
+  nav { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  nav .wrap { max-width: 1240px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); flex: 0 0 auto; }
+  .brand svg { flex: 0 0 30px; }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .brand-name { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 21px; white-space: nowrap; }
+  .brand-name .n { font-style: italic; font-weight: 400; color: var(--accent); }
+  .brand-tagline { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-top: 4px; }
+  .nav-links { display: flex; align-items: center; gap: 36px; }
+  .nav-links a:not(.btn) { font-size: 15px; text-decoration: none; }
+  .nav-links a:not(.btn):hover { opacity: 0.7; }
+  .nav-toggle { display: none; background: none; border: none; padding: 6px; border-radius: 8px; cursor: pointer; flex: 0 0 auto; }
+  .nav-toggle:hover { background: rgba(0,0,0,0.04); }
+  .mobile-menu { display: none; flex-direction: column; padding: 4px 24px 20px; gap: 2px; border-top: 1px solid var(--line); }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a:not(.btn) { padding: 13px 2px; font-size: 16px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line); }
+  .mobile-menu .btn { margin-top: 14px; width: 100%; }
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+    nav { position: sticky; top: 0; z-index: 100; background: var(--cream); }
+  }
+
+  /* hero */
+  .hero { padding: 72px 0 48px; text-align: center; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.15; max-width: 760px; margin: 0 auto 20px; }
+  .hero .sub { font-size: 17px; color: var(--muted); max-width: 600px; margin: 0 auto 36px; }
+  .hero-ctas { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+  /* sections */
+  section.block { padding: 64px 0; border-bottom: 1px solid var(--line); }
+  section.block.panel { background: var(--panel); }
+  section.block:last-of-type { border-bottom: none; }
+  .block .kicker { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+  .block h2 { font-size: clamp(24px, 3.4vw, 32px); margin-bottom: 20px; max-width: 640px; }
+  .block p.desc { color: var(--muted); font-size: 16px; max-width: 680px; margin: 0 0 20px; }
+  .block p.desc:last-of-type { margin-bottom: 0; }
+
+  .feature-list { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 14px; max-width: 680px; }
+  .feature-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; }
+  .feature-list .mark { flex: 0 0 auto; width: 20px; height: 20px; border-radius: 999px; background: var(--panel); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; margin-top: 1px; }
+
+  .credentials { display: flex; flex-wrap: wrap; gap: 28px 40px; margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .credentials .cred { flex: 1 1 140px; }
+  .credentials .cred .num { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 24px; color: var(--accent); }
+  .credentials .cred .label { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  /* service area */
+  .area-row { display: flex; align-items: center; gap: 48px; }
+  .area-copy { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+  .area-copy h2 { font-size: clamp(22px, 2.6vw, 28px); margin-bottom: 0; }
+  .area-copy p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 480px; }
+  .area-map { flex: 0 0 320px; height: 172px; }
+  .area-map img { width: 100%; height: 172px; object-fit: contain; background: var(--placeholder); border-radius: 16px; display: block; }
+
+  /* close */
+  .close { background: var(--ink); color: var(--cream); text-align: center; padding: 80px 24px; }
+  .close .eyebrow { color: #9DB49A; }
+  .close h2 { color: #FFFFFF; font-size: clamp(26px, 4vw, 36px); max-width: 560px; margin: 0 auto 18px; }
+  .close p { color: #C9C7BC; max-width: 480px; margin: 0 auto 32px; font-size: 16px; }
+  .close .cta { display: inline-flex; align-items: center; padding: 14px 32px; background: var(--accent); color: #FFFFFF; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; }
+  .close .cta:hover { opacity: 0.9; }
+
+  /* footer */
+  footer.site { padding: 44px 0; border-top: 1px solid var(--line); }
+  footer.site .wrap { max-width: 1240px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .footer-brand { display: flex; flex-direction: column; gap: 6px; }
+  .footer-brand .row { display: flex; align-items: center; gap: 12px; }
+  .footer-brand .city { font-size: 13px; color: var(--muted); }
+  .footer-links { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+  .footer-links a:hover { opacity: 0.75; }
+  .footer-social { display: flex; gap: 10px; }
+  .footer-social span { width: 30px; height: 30px; border-radius: 999px; border: 1px solid var(--border2); display: inline-block; }
+  .footer-copy { font-size: 13px; color: var(--caption); }
+
+  @media (max-width: 720px) {
+    section.block { padding: 48px 0; }
+    .area-row { flex-direction: column; align-items: stretch; }
+    .area-map { flex: 0 0 auto; width: 100%; }
+    .credentials { gap: 20px; }
+    footer.site .wrap { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg width="30" height="30" viewBox="0 0 40 40"><path d="M8,36 Q10,20 6,4" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path><path d="M20,36 Q22,14 20,2" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path><path d="M32,36 Q30,20 34,4" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path></svg>
+      <span class="brand-text">
+        <span class="brand-name">Marsh <span class="n">n</span> Main</span>
+        <span class="brand-tagline">Digital</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="/services/">Services</a>
+      <a href="/work/youngs-collision-center/">Case Studies</a>
+      <a href="/about/">About</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#23291F" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/services/">Services</a>
+    <a href="/work/youngs-collision-center/">Case Studies</a>
+    <a href="/about/">About</a>
+    <a class="btn btn-solid" href="mailto:hello@marshnmain.com">Schedule a Consultation</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h1>Twenty years of Fortune 500 digital experience, now built for Main Street</h1>
+    <p class="sub">I'm Andy Young, the person behind Marsh n Main. No account managers, no outsourced work, no handoffs to a junior team &mdash; just someone who's spent two decades building digital experiences for brands you already know, now doing it for businesses across Hilton Head Island, Bluffton, and Beaufort.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-solid" href="mailto:hello@marshnmain.com">Schedule a Free Consultation</a>
+      <a class="btn btn-outline" href="/work/youngs-collision-center/">See a Real Example</a>
+    </div>
+  </div>
+</header>
+
+<section class="block" id="story">
+  <div class="wrap">
+    <div class="kicker">My Background</div>
+    <h2>From Fortune 500 boardrooms to Main Street storefronts</h2>
+    <p class="desc">Before Marsh n Main, I spent 20+ years as a digital marketing and e-commerce executive at Cox Communications, Verizon Wireless, and Motorola Mobility (as part of Google). I grew existing-customer sales volume on Cox.com by over 300% in four years, took Verizon's SEO ranking from behind AT&amp;T to the industry lead in under six months, owned marketing email programs at all three companies that generated millions in profit, and launched Motorola's global e-commerce platform &mdash; a first-of-its-kind system that delivered custom-built phones in seven days. I hold an MBA from the University of Texas at Austin and a BA in Economics from Vanderbilt University.</p>
+    <p class="desc">In between those roles, I bought and ran a small business of my own &mdash; a furniture business, from 2011 to 2013. That's the piece that actually matters most here: I've sat on both sides of the table. I know what it's like to approve a marketing budget as a Fortune 500 executive, and I know what it's like to watch every dollar as a small business owner. Marsh n Main exists because most small businesses never get access to the first kind of thinking, at a price that makes sense for the second.</p>
+    <div class="credentials">
+      <div class="cred"><span class="num">20+ yrs</span><span class="label">Digital marketing &amp; e-commerce leadership</span></div>
+      <div class="cred"><span class="num">300%</span><span class="label">Sales growth driven at Cox.com</span></div>
+      <div class="cred"><span class="num">#1</span><span class="label">SEO ranking achieved at Verizon</span></div>
+      <div class="cred"><span class="num">1</span><span class="label">Small business owned &amp; operated firsthand</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block panel" id="philosophy">
+  <div class="wrap">
+    <div class="kicker">Philosophy</div>
+    <h2>Fortune 500 thinking, without the Fortune 500 price tag</h2>
+    <p class="desc">Most small businesses either can't afford that level of digital expertise, or they hire an agency and get handed off to a rotating cast of junior staff who've never run a P&amp;L, let alone a business. Marsh n Main is built differently.</p>
+    <ul class="feature-list">
+      <li><span class="mark">&check;</span>Direct access to me, every time &mdash; no account managers relaying messages between you and the person doing the work</li>
+      <li><span class="mark">&check;</span>Planned and managed on an ongoing basis, the way enterprise teams operate, not set up once and forgotten</li>
+      <li><span class="mark">&check;</span>Scoped and priced for a small business budget, not an enterprise one</li>
+      <li><span class="mark">&check;</span>Local to the Lowcountry, not an outsourced team working odd hours in a different time zone</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="service-area">
+  <div class="wrap area-row">
+    <div class="area-copy">
+      <div class="kicker">Service Area</div>
+      <h2>Proudly serving the Lowcountry</h2>
+      <p>Working with businesses across Hilton Head Island, Bluffton, and Beaufort &mdash; the same community I live and work in.</p>
+    </div>
+    <div class="area-map">
+      <img src="/home-assets/service-area-map.svg" alt="Map of our service area: Hilton Head Island, Bluffton, and Beaufort">
+    </div>
+  </div>
+</section>
+
+<div class="close">
+  <div class="eyebrow">Let's Talk</div>
+  <h2>Ready to see what this looks like for your business?</h2>
+  <p>Tell me about your business and what you're hoping to fix, grow, or launch.</p>
+  <a class="cta" href="mailto:hello@marshnmain.com">Schedule a Free Consultation</a>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-brand">
+      <div class="row">
+        <svg width="26" height="26" viewBox="0 0 40 40"><path d="M8,36 Q10,20 6,4" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path><path d="M20,36 Q22,14 20,2" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path><path d="M32,36 Q30,20 34,4" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path></svg>
+        <span class="brand-text">
+          <span class="brand-name" style="font-size:18px;">Marsh <span class="n">n</span> Main</span>
+          <span class="brand-tagline">Digital</span>
+        </span>
+      </div>
+      <div class="city">Hilton Head Island, SC</div>
+    </div>
+    <div class="footer-links">
+      <a href="/about/">About</a>
+      <a href="/services/">Services</a>
+      <a href="/work/youngs-collision-center/">Case Studies</a>
+      <a href="/#contact">Contact</a>
+      <div class="footer-social">
+        <span></span><span></span><span></span>
+      </div>
+      <span class="footer-copy">&copy; 2026 Marsh n Main</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  if (!toggle || !menu) return;
+  toggle.addEventListener('click', function(){
+    var isOpen = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
