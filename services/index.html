@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services — Marsh n Main</title>
+<meta name="description" content="Web development, email & CRM, and digital marketing & media for small businesses across Hilton Head Island, Bluffton, and Beaufort. Planned and managed, not just set and forgotten.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&display=swap">
+<style>
+  :root { --accent: #5C7A66; --cream: #FAF8F3; --ink: #23291F; --muted: #6B685F; --line: #E4E0D3; --panel: #F1EDE4; --caption: #8A8677; --border2: #D8D3C4; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; margin: 0; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 30px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .btn-solid { background: var(--accent); color: #FFFFFF; }
+  .btn-solid:hover { opacity: 0.9; }
+  .btn-outline { border: 1px solid var(--border2); color: var(--ink); }
+  .btn-outline:hover { background: rgba(0,0,0,0.03); }
+
+  /* nav */
+  nav { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  nav .wrap { max-width: 1240px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); flex: 0 0 auto; }
+  .brand svg { flex: 0 0 30px; }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .brand-name { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 21px; white-space: nowrap; }
+  .brand-name .n { font-style: italic; font-weight: 400; color: var(--accent); }
+  .brand-tagline { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-top: 4px; }
+  .nav-links { display: flex; align-items: center; gap: 36px; }
+  .nav-links a:not(.btn) { font-size: 15px; text-decoration: none; }
+  .nav-links a:not(.btn):hover { opacity: 0.7; }
+  .nav-toggle { display: none; background: none; border: none; padding: 6px; border-radius: 8px; cursor: pointer; flex: 0 0 auto; }
+  .nav-toggle:hover { background: rgba(0,0,0,0.04); }
+  .mobile-menu { display: none; flex-direction: column; padding: 4px 24px 20px; gap: 2px; border-top: 1px solid var(--line); }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a:not(.btn) { padding: 13px 2px; font-size: 16px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line); }
+  .mobile-menu .btn { margin-top: 14px; width: 100%; }
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  }
+
+  /* hero */
+  .hero { padding: 72px 0 48px; text-align: center; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(32px, 5vw, 50px); line-height: 1.15; max-width: 760px; margin: 0 auto 20px; }
+  .hero .sub { font-size: 17px; color: var(--muted); max-width: 560px; margin: 0 auto 36px; }
+  .hero-ctas { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+  /* sections */
+  section.block { padding: 72px 0; border-bottom: 1px solid var(--line); }
+  section.block:last-of-type { border-bottom: none; }
+  .block .kicker { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+  .service-head { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+  .service-icon { flex: 0 0 auto; width: 48px; height: 48px; border-radius: 12px; background: var(--panel); display: flex; align-items: center; justify-content: center; }
+  .block h2 { font-size: clamp(24px, 3.4vw, 32px); }
+  .block p.desc { color: var(--muted); font-size: 16px; max-width: 680px; margin: 0 0 24px; }
+
+  .feature-list { list-style: none; margin: 0 0 28px; padding: 0; display: grid; gap: 14px; max-width: 680px; }
+  .feature-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; }
+  .feature-list .mark { flex: 0 0 auto; width: 20px; height: 20px; border-radius: 999px; background: var(--panel); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; margin-top: 1px; }
+
+  .inline-link { display: inline-flex; align-items: center; font-size: 14px; font-weight: 600; color: var(--accent); text-decoration: none; }
+  .inline-link:hover { opacity: 0.8; }
+
+  /* also available */
+  .also-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .also-card { background: #FFFFFF; border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
+  .also-card h3 { font-size: 17px; margin-bottom: 8px; }
+  .also-card p { font-size: 14px; color: var(--muted); margin: 0; }
+
+  /* process */
+  .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .process-tile .num { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 30px; color: var(--accent); margin-bottom: 10px; }
+  .process-tile h3 { font-size: 17px; margin-bottom: 8px; }
+  .process-tile p { font-size: 14px; color: var(--muted); margin: 0; }
+
+  /* close */
+  .close { background: var(--ink); color: var(--cream); text-align: center; padding: 80px 24px; }
+  .close .eyebrow { color: #9DB49A; }
+  .close h2 { color: #FFFFFF; font-size: clamp(26px, 4vw, 36px); max-width: 560px; margin: 0 auto 18px; }
+  .close p { color: #C9C7BC; max-width: 480px; margin: 0 auto 32px; font-size: 16px; }
+  .close .cta { display: inline-flex; align-items: center; padding: 14px 32px; background: var(--accent); color: #FFFFFF; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; }
+  .close .cta:hover { opacity: 0.9; }
+
+  /* footer */
+  footer.site { padding: 44px 0; border-top: 1px solid var(--line); }
+  footer.site .wrap { max-width: 1240px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .footer-brand { display: flex; flex-direction: column; gap: 6px; }
+  .footer-brand .row { display: flex; align-items: center; gap: 12px; }
+  .footer-brand .city { font-size: 13px; color: var(--muted); }
+  .footer-links { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+  .footer-links a:hover { opacity: 0.75; }
+  .footer-social { display: flex; gap: 10px; }
+  .footer-social span { width: 30px; height: 30px; border-radius: 999px; border: 1px solid var(--border2); display: inline-block; }
+  .footer-copy { font-size: 13px; color: var(--caption); }
+
+  @media (max-width: 720px) {
+    .also-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; gap: 32px; }
+    section.block { padding: 52px 0; }
+    footer.site .wrap { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg width="30" height="30" viewBox="0 0 40 40"><path d="M8,36 Q10,20 6,4" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path><path d="M20,36 Q22,14 20,2" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path><path d="M32,36 Q30,20 34,4" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path></svg>
+      <span class="brand-text">
+        <span class="brand-name">Marsh <span class="n">n</span> Main</span>
+        <span class="brand-tagline">Digital</span>
+      </span>
+    </a>
+    <div class="nav-links">
+      <a href="/services/">Services</a>
+      <a href="/work/youngs-collision-center/">Case Studies</a>
+      <a href="/#service-area">About</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#23291F" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/services/">Services</a>
+    <a href="/work/youngs-collision-center/">Case Studies</a>
+    <a href="/#service-area">About</a>
+    <a class="btn btn-solid" href="mailto:hello@marshnmain.com">Schedule a Consultation</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Services</div>
+    <h1>Everything your website needs to actually work for your business</h1>
+    <p class="sub">Fortune 500 digital experience, built for Main Street budgets. Design, marketing, and ongoing support, planned and managed by one person who knows your business &mdash; not handed off to a different team every time.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-solid" href="mailto:hello@marshnmain.com">Schedule a Free Consultation</a>
+      <a class="btn btn-outline" href="/work/youngs-collision-center/">See a Real Example</a>
+    </div>
+  </div>
+</header>
+
+<section class="block" id="web-development">
+  <div class="wrap">
+    <div class="kicker">What We Do</div>
+    <div class="service-head">
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#23291F" stroke-width="1.6"><rect x="3" y="4" width="18" height="13" rx="1.5"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+      </div>
+      <h2>Web Development</h2>
+    </div>
+    <p class="desc">Custom-built, fast-loading sites designed to convert visitors into customers &mdash; not a template stretched to fit your business, and not a site that still looks and loads like it's 2015.</p>
+    <ul class="feature-list">
+      <li><span class="mark">&check;</span>Mobile-first design and build, since most of your customers are finding you on their phone</li>
+      <li><span class="mark">&check;</span>Fast load times &mdash; the kind Google actually rewards, not just "good enough"</li>
+      <li><span class="mark">&check;</span>Calls to action built around how your customers actually decide to reach out</li>
+      <li><span class="mark">&check;</span>Hosting, updates, and support after launch, so the site keeps working without you having to think about it</li>
+    </ul>
+    <a class="inline-link" href="/work/youngs-collision-center/">See it in action &rarr;</a>
+  </div>
+</section>
+
+<section class="block" id="email-crm">
+  <div class="wrap">
+    <div class="kicker">What We Do</div>
+    <div class="service-head">
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#23291F" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="1.5"></rect><path d="M3 6l9 7 9-7"></path></svg>
+      </div>
+      <h2>Email &amp; CRM</h2>
+    </div>
+    <p class="desc">Systems that turn one-time visitors into repeat customers, automatically &mdash; so the relationship doesn't end the moment someone leaves your site.</p>
+    <ul class="feature-list">
+      <li><span class="mark">&check;</span>Email capture built into the site itself, not bolted on as an afterthought</li>
+      <li><span class="mark">&check;</span>Automated follow-up sequences for welcomes, re-engagement, and promotions</li>
+      <li><span class="mark">&check;</span>A simple CRM setup so no lead or inquiry falls through the cracks</li>
+      <li><span class="mark">&check;</span>Integration with tools you already use, kept as light and low-maintenance as possible</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="digital-marketing">
+  <div class="wrap">
+    <div class="kicker">What We Do</div>
+    <div class="service-head">
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#23291F" stroke-width="1.6"><circle cx="6" cy="12" r="2.4"></circle><circle cx="18" cy="6" r="2.4"></circle><circle cx="18" cy="18" r="2.4"></circle><line x1="8.1" y1="10.9" x2="15.9" y2="7.1"></line><line x1="8.1" y1="13.1" x2="15.9" y2="16.9"></line></svg>
+      </div>
+      <h2>Digital Marketing &amp; Media</h2>
+    </div>
+    <p class="desc">SEO, content, and social media, organic and paid, across the platforms your customers actually use. Planned and managed on an ongoing basis &mdash; not just set up once and forgotten.</p>
+    <ul class="feature-list">
+      <li><span class="mark">&check;</span>Search engine optimization built into every page, not treated as an afterthought</li>
+      <li><span class="mark">&check;</span>A content calendar for organic social, tailored to your business and your customers</li>
+      <li><span class="mark">&check;</span>Paid ad management on Google and Meta, with budgets you control and results you can see</li>
+      <li><span class="mark">&check;</span>Reporting that explains results in plain language, not just dashboard screenshots</li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="also-available">
+  <div class="wrap">
+    <div class="kicker">Also Available</div>
+    <h2>For when you're ready to go further</h2>
+    <p class="desc">Two add-ons available alongside any project, scoped to fit your business rather than over-built for scale you don't need yet.</p>
+    <div class="also-grid">
+      <div class="also-card">
+        <h3>E-Commerce Strategy</h3>
+        <p>Product catalog structure, checkout flow, and a platform recommendation suited to your size and budget &mdash; so selling online adds revenue, not overhead.</p>
+      </div>
+      <div class="also-card">
+        <h3>ADA / WCAG Compliance</h3>
+        <p>Accessibility review and remediation, delivered in partnership with accessibility specialists, so your site works for every visitor and reduces legal risk.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div class="kicker">How We Work</div>
+    <h2>A straightforward process, start to finish</h2>
+    <p class="desc">No lengthy agency onboarding, no handoffs between departments &mdash; one point of contact from the first conversation to ongoing support.</p>
+    <div class="process-grid">
+      <div class="process-tile">
+        <div class="num">1</div>
+        <h3>Discovery</h3>
+        <p>A conversation about your business, your customers, and what "working" actually looks like for your site.</p>
+      </div>
+      <div class="process-tile">
+        <div class="num">2</div>
+        <h3>Build &amp; Launch</h3>
+        <p>A custom site built around your business, live in weeks, not months.</p>
+      </div>
+      <div class="process-tile">
+        <div class="num">3</div>
+        <h3>Grow</h3>
+        <p>Ongoing marketing, maintenance, and optimization, so the site keeps working long after launch day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="close">
+  <div class="eyebrow">Let's Talk</div>
+  <h2>Ready to see what this looks like for your business?</h2>
+  <p>Tell me about your business and what you're hoping to fix, grow, or launch.</p>
+  <a class="cta" href="mailto:hello@marshnmain.com">Schedule a Free Consultation</a>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-brand">
+      <div class="row">
+        <svg width="26" height="26" viewBox="0 0 40 40"><path d="M8,36 Q10,20 6,4" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path><path d="M20,36 Q22,14 20,2" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path><path d="M32,36 Q30,20 34,4" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path></svg>
+        <span class="brand-text">
+          <span class="brand-name" style="font-size:18px;">Marsh <span class="n">n</span> Main</span>
+          <span class="brand-tagline">Digital</span>
+        </span>
+      </div>
+      <div class="city">Hilton Head Island, SC</div>
+    </div>
+    <div class="footer-links">
+      <a href="/services/">Services</a>
+      <a href="/work/youngs-collision-center/">Case Studies</a>
+      <a href="/#contact">Contact</a>
+      <div class="footer-social">
+        <span></span><span></span><span></span>
+      </div>
+      <span class="footer-copy">&copy; 2026 Marsh n Main</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  if (!toggle || !menu) return;
+  toggle.addEventListener('click', function(){
+    var isOpen = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
