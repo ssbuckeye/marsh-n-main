@@ -23,16 +23,32 @@
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
   h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; margin: 0; }
 
+  .btn { display: inline-flex; align-items: center; justify-content: center; padding: 15px 30px; border-radius: 999px; font-size: 15px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .btn-solid { background: var(--accent); color: #FFFFFF; }
+  .btn-solid:hover { opacity: 0.9; }
+
   /* nav */
-  nav { padding: 18px 0; border-bottom: 1px solid var(--line); }
-  nav .wrap { display: flex; align-items: center; justify-content: space-between; }
-  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
-  .brand svg { flex: 0 0 22px; }
-  .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
-  .brand-name { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 17px; }
+  nav { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); flex: 0 0 auto; }
+  .brand svg { flex: 0 0 30px; }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .brand-name { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 21px; white-space: nowrap; }
   .brand-name .n { font-style: italic; font-weight: 400; color: var(--accent); }
-  .brand-tagline { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); margin-top: 2px; }
-  nav .cta { font-size: 14px; font-weight: 600; color: var(--accent); text-decoration: none; }
+  .brand-tagline { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-top: 4px; }
+  .nav-links { display: flex; align-items: center; gap: 36px; }
+  .nav-links a:not(.btn) { font-size: 15px; text-decoration: none; }
+  .nav-links a:not(.btn):hover { opacity: 0.7; }
+  .nav-toggle { display: none; background: none; border: none; padding: 6px; border-radius: 8px; cursor: pointer; flex: 0 0 auto; }
+  .nav-toggle:hover { background: rgba(0,0,0,0.04); }
+  .mobile-menu { display: none; flex-direction: column; padding: 4px 24px 20px; gap: 2px; border-top: 1px solid var(--line); }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a:not(.btn) { padding: 13px 2px; font-size: 16px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--line); }
+  .mobile-menu .btn { margin-top: 14px; width: 100%; }
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  }
 
   /* hero */
   .hero { padding: 72px 0 48px; text-align: center; }
@@ -97,13 +113,26 @@
 <nav>
   <div class="wrap">
     <a class="brand" href="/">
-      <svg width="22" height="22" viewBox="0 0 40 40"><path d="M8,36 Q10,20 6,4" stroke="#5C7A66" stroke-width="5" fill="none" stroke-linecap="round"></path><path d="M20,36 Q22,14 20,2" stroke="#5C7A66" stroke-width="5" fill="none" stroke-linecap="round"></path><path d="M32,36 Q30,20 34,4" stroke="#5C7A66" stroke-width="5" fill="none" stroke-linecap="round"></path></svg>
+      <svg width="30" height="30" viewBox="0 0 40 40"><path d="M8,36 Q10,20 6,4" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path><path d="M20,36 Q22,14 20,2" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path><path d="M32,36 Q30,20 34,4" stroke="#5C7A66" stroke-width="4" fill="none" stroke-linecap="round"></path></svg>
       <span class="brand-text">
         <span class="brand-name">Marsh <span class="n">n</span> Main</span>
         <span class="brand-tagline">Digital</span>
       </span>
     </a>
-    <a class="cta" href="mailto:hello@marshnmain.com">Get in touch →</a>
+    <div class="nav-links">
+      <a href="/#services">Services</a>
+      <a href="/work/youngs-collision-center/">Case Studies</a>
+      <a href="/#service-area">About</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#23291F" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/#services">Services</a>
+    <a href="/work/youngs-collision-center/">Case Studies</a>
+    <a href="/#service-area">About</a>
+    <a class="btn btn-solid" href="mailto:hello@marshnmain.com">Schedule a Consultation</a>
   </div>
 </nav>
 
@@ -256,6 +285,24 @@
 <footer class="site">
   <div class="wrap">&copy; 2026 Marsh n Main</div>
 </footer>
+
+<script>
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  if (!toggle || !menu) return;
+  toggle.addEventListener('click', function(){
+    var isOpen = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
