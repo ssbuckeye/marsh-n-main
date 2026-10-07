@@ -200,6 +200,24 @@
   .contact p { margin: 10px 0 0; font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.85); max-width: 520px; }
   .contact-row { display: flex; align-items: center; gap: 24px; margin-top: 28px; flex-wrap: wrap; }
   .contact-row span { font-size: 15px; color: rgba(255,255,255,0.85); }
+  .contact-form { margin-top: 28px; max-width: 640px; }
+  .contact-form .form-row { display: flex; gap: 20px; flex-wrap: wrap; }
+  .contact-form .form-field { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+  .contact-form label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9); }
+  .contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea {
+    font-family: inherit; font-size: 15px; padding: 12px 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.35); background: rgba(255,255,255,0.12); color: #FFFFFF;
+  }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.55); }
+  .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #FFFFFF; background: rgba(255,255,255,0.18); }
+  .contact-form textarea { resize: vertical; min-height: 110px; }
+  .contact-form .botcheck-field { position: absolute; left: -9999px; top: -9999px; }
+  .form-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 4px; }
+  .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+  .contact-status { font-size: 14px; line-height: 1.5; }
+  .contact-status.success { color: #FFFFFF; font-weight: 600; }
+  .contact-status.error { color: #FFFFFF; font-weight: 600; }
+  .contact-fallback { margin: 18px 0 0; font-size: 14px; color: rgba(255,255,255,0.75); }
+  .contact-fallback a { text-decoration: underline; }
 
   /* footer */
   footer.site { padding: 44px 0; border-top: 1px solid var(--line); }
@@ -258,7 +276,7 @@
     <a href="/services/">Services</a>
     <a href="/work/youngs-collision-center/">Case Studies</a>
     <a href="/about/">About</a>
-    <a class="btn btn-solid" href="mailto:hello@marshnmain.com">Schedule a Consultation</a>
+    <a class="btn btn-solid" href="#contact">Schedule a Consultation</a>
   </div>
 </nav>
 
@@ -269,7 +287,7 @@
       <h1>Fortune 500 digital experience, working for Main Street.</h1>
       <p class="sub">Web development, email &amp; CRM, and digital marketing &amp; media for businesses across Hilton Head Island, Bluffton, and Beaufort, built by someone who's done this at scale.</p>
       <div class="hero-ctas">
-        <a class="btn btn-solid" href="mailto:hello@marshnmain.com">Schedule a Free Consultation</a>
+        <a class="btn btn-solid" href="#contact">Schedule a Free Consultation</a>
         <a class="btn btn-outline" href="/services/">See Services</a>
       </div>
     </div>
@@ -368,10 +386,33 @@
   <div class="wrap">
     <h2>Let's Talk</h2>
     <p>Tell me about your business and what you're hoping to fix, grow, or launch.</p>
-    <div class="contact-row">
-      <a class="btn btn-light" href="mailto:hello@marshnmain.com">Schedule a Free Consultation</a>
-      <span>hello@marshnmain.com</span>
-    </div>
+    <form class="contact-form" id="contactForm">
+      <input type="hidden" name="access_key" value="b9c7edcc-df84-4443-8b9b-5c6bcc6335ce">
+      <input type="hidden" name="subject" value="New inquiry from marshnmain.com">
+      <div class="botcheck-field" aria-hidden="true">
+        <label for="botcheck">Leave this field blank</label>
+        <input type="checkbox" id="botcheck" name="botcheck" tabindex="-1" autocomplete="off">
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="contactName">Name</label>
+          <input type="text" id="contactName" name="name" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="contactEmail">Email</label>
+          <input type="email" id="contactEmail" name="email" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="contactMessage">Message</label>
+        <textarea id="contactMessage" name="message" rows="4" required></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-light" id="contactSubmit">Send Message</button>
+        <span id="contactStatus" class="contact-status" role="status" aria-live="polite"></span>
+      </div>
+    </form>
+    <p class="contact-fallback">Prefer email? Reach me directly at <a href="mailto:hello@marshnmain.com">hello@marshnmain.com</a>.</p>
   </div>
 </div>
 
@@ -453,6 +494,47 @@
     });
   }, { threshold: 0.3, rootMargin: '0px 0px -10% 0px' });
   observer.observe(section);
+})();
+
+(function(){
+  var form = document.getElementById('contactForm');
+  if (!form) return;
+  var status = document.getElementById('contactStatus');
+  var submitBtn = document.getElementById('contactSubmit');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (form.botcheck && form.botcheck.checked) return;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    status.textContent = '';
+    status.className = 'contact-status';
+    var data = new FormData(form);
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(result){
+      if (result.success) {
+        form.reset();
+        status.textContent = "Thanks — I'll be in touch soon.";
+        status.className = 'contact-status success';
+        submitBtn.textContent = 'Message Sent';
+      } else {
+        status.textContent = 'Something went wrong. Please email hello@marshnmain.com directly.';
+        status.className = 'contact-status error';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    })
+    .catch(function(){
+      status.textContent = 'Something went wrong. Please email hello@marshnmain.com directly.';
+      status.className = 'contact-status error';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    });
+  });
 })();
 </script>
 
