@@ -1,4 +1,4 @@
-<!doctype html>
+undefined<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -484,12 +484,15 @@
   if (!section || !statOld || !statNew) return;
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!('IntersectionObserver' in window) || reduceMotion) return;
+  var isMobile = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+  var startDelay = isMobile ? 1500 : 150;
+  var gap = 950;
   var observer = new IntersectionObserver(function(entries, obs){
     entries.forEach(function(entry){
       if (entry.isIntersecting) {
         obs.unobserve(entry.target);
-        setTimeout(function(){ statOld.classList.add('pulse'); }, 150);
-        setTimeout(function(){ statNew.classList.add('pulse'); }, 1100);
+        setTimeout(function(){ statOld.classList.add('pulse'); }, startDelay);
+        setTimeout(function(){ statNew.classList.add('pulse'); }, startDelay + gap);
       }
     });
   }, { threshold: 0.3, rootMargin: '0px 0px -10% 0px' });
