@@ -48,9 +48,10 @@
   .brand-name { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 21px; white-space: nowrap; }
   .brand-name .n { font-style: italic; font-weight: 400; color: var(--accent); }
   .brand-tagline { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-top: 4px; }
-  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links { display: flex; align-items: center; gap: 36px; }
   .nav-links a:not(.btn) { font-size: 15px; text-decoration: none; }
   .nav-links a:not(.btn):hover { opacity: 0.7; }
+  .nav-links a.active, .mobile-menu a.active, .footer-links a.active { font-weight: 600; }
   .nav-toggle { display: none; background: none; border: none; padding: 6px; border-radius: 8px; cursor: pointer; flex: 0 0 auto; }
   .nav-toggle:hover { background: rgba(0,0,0,0.04); }
   .mobile-menu { display: none; flex-direction: column; padding: 4px 24px 20px; gap: 2px; border-top: 1px solid var(--line); }
@@ -143,7 +144,7 @@
     </a>
     <div class="nav-links">
       <a href="/services/">Services</a>
-      <a href="/locations/">Locations</a>
+      <a href="/locations/" class="active" aria-current="page">Locations</a>
       <a href="/work/youngs-collision-center/">Case Studies</a>
       <a href="/about/">About</a>
     </div>
@@ -153,7 +154,7 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="/services/">Services</a>
-    <a href="/locations/">Locations</a>
+    <a href="/locations/" class="active" aria-current="page">Locations</a>
     <a href="/work/youngs-collision-center/">Case Studies</a>
     <a href="/about/">About</a>
     <a class="btn btn-solid" href="/#contact">Schedule a Consultation</a>
@@ -217,7 +218,7 @@
     <div class="footer-links">
       <a href="/about/">About</a>
       <a href="/services/">Services</a>
-      <a href="/locations/">Locations</a>
+      <a href="/locations/" class="active" aria-current="page">Locations</a>
       <a href="/work/youngs-collision-center/">Case Studies</a>
       <a href="/#contact">Contact</a>
       <div class="footer-social">

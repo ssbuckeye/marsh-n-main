@@ -60,6 +60,7 @@
   .nav-links { display: flex; align-items: center; gap: 36px; }
   .nav-links a:not(.btn) { font-size: 15px; text-decoration: none; }
   .nav-links a:not(.btn):hover { opacity: 0.7; }
+  .nav-links a.active, .mobile-menu a.active, .footer-links a.active { font-weight: 600; }
   .nav-toggle { display: none; background: none; border: none; padding: 6px; border-radius: 8px; cursor: pointer; flex: 0 0 auto; }
   .nav-toggle:hover { background: rgba(0,0,0,0.04); }
   .mobile-menu { display: none; flex-direction: column; padding: 4px 24px 20px; gap: 2px; border-top: 1px solid var(--line); }
@@ -150,7 +151,7 @@
       </span>
     </a>
     <div class="nav-links">
-      <a href="/services/">Services</a>
+      <a href="/services/" class="active" aria-current="page">Services</a>
       <a href="/locations/">Locations</a>
       <a href="/work/youngs-collision-center/">Case Studies</a>
       <a href="/about/">About</a>
@@ -160,7 +161,7 @@
     </button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="/services/">Services</a>
+    <a href="/services/" class="active" aria-current="page">Services</a>
     <a href="/locations/">Locations</a>
     <a href="/work/youngs-collision-center/">Case Studies</a>
     <a href="/about/">About</a>
@@ -314,7 +315,7 @@
     </div>
     <div class="footer-links">
       <a href="/about/">About</a>
-      <a href="/services/">Services</a>
+      <a href="/services/" class="active" aria-current="page">Services</a>
       <a href="/locations/">Locations</a>
       <a href="/work/youngs-collision-center/">Case Studies</a>
       <a href="/#contact">Contact</a>
